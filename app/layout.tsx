@@ -9,6 +9,7 @@ import Footer from "@/features/components/Footer";
 import SubFooter from "@/features/components/SubFooter";
 import MainLayout from "@/features/layouts/MainLayout";
 import { FavouriteProvider } from "@/features/context/FavouriteContext";
+import { FilterProvider } from "@/features/context/FilterContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,7 +38,9 @@ export default function RootLayout({
       >
         <QueryProvider>
           <FavouriteProvider>
-            <MainLayout>{children}</MainLayout>
+            <FilterProvider>
+              <MainLayout>{children}</MainLayout>
+            </FilterProvider>
           </FavouriteProvider>
 
           <Toaster position="bottom-center" />

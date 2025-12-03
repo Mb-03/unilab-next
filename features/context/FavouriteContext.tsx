@@ -28,14 +28,13 @@ export const useFavourite = () => {
 
 export const FavouriteProvider = ({ children }: Props) => {
   const [favourite, setFavourite] = useState<string[]>([]);
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-const stored = localStorage.getItem("favourites");
-if (stored) setFavourite(JSON.parse(stored))
-    setMounted(true)
-    }, [])
-
+  useEffect(() => {
+    const stored = localStorage.getItem("favourites");
+    if (stored) setFavourite(JSON.parse(stored));
+    setMounted(true);
+  }, []);
 
   const toggleFavourite = (id: string) => {
     setFavourite((prev) =>

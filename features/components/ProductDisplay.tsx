@@ -5,19 +5,26 @@ import { getFilterProducts } from "../api/api";
 import { useFavourite } from "../context/FavouriteContext";
 import { FaHeart, FaStar } from "react-icons/fa";
 import ProductSkeletonGrid from "./ProductDisplaySkeleton";
+import { useFilters } from "../context/FilterContext";
 
 const ProductDisplay = () => {
   const { favourite, toggleFavourite } = useFavourite();
+  const { brand, model, size, color, style } = useFilters();
 
-  const { data: products = [], isLoading } = useQuery({
-    queryKey: ["initial"],
-    queryFn: getFilterProducts,
+  const {
+    data: products = [],
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["initial", { brand, model, style, color, size }],
+    queryFn: () => getFilterProducts({ brand, model, style, color, size }),
   });
 
   const totalStars = 5;
 
   return (
     <div className="grid grid-cols-3 gap-x-[20px] gap-y-[32px]">
+      {isError && <h1>No Item matches Your SEarch</h1>}
       {isLoading && <ProductSkeletonGrid />}
       {products.map((prodcut) => {
         const rating = Math.ceil(Number(prodcut.reviews));
