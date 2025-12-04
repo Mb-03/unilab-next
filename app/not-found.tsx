@@ -7,7 +7,7 @@ export default function NotFound() {
 
   return (
     <div className="w-full font-[latoRegular]">
-      <div className="max-w-[1440px] mx-auto flex items-center justify-around">
+      <div className="max-w-[1440px] mx-auto flex items-center justify-around max-md:flex-col">
         <img src="/notFound.svg" alt="page not found" />
         <div className="rounded-lg border border-[#D9D9D9] p-5 flex flex-col gap-3 items-start">
           <h2 className="font-[latoBold] text-[16px] text-[#262626]">

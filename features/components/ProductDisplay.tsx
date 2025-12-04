@@ -23,7 +23,7 @@ const ProductDisplay = () => {
   const totalStars = 5;
 
   return (
-    <div className="grid grid-cols-3 gap-x-[20px] gap-y-[32px]">
+    <div className="grid grid-cols-3 gap-x-[20px] gap-y-[32px] max-lg:grid-cols-1">
       {isError && <h1>No Item matches Your SEarch</h1>}
       {isLoading && <ProductSkeletonGrid />}
       {products.map((prodcut) => {

@@ -40,12 +40,12 @@ const AboutUs = () => {
   return (
     <div className="w-full flex justify-center mt-[48px] pb-16">
       <div className="flex">
-        <div className="bg-[#262626] w-full max-w-[630px] p-14">
+        <div className="bg-[#262626] w-full max-w-[630px] p-14 max-md:px-4">
           <h2 className="font-[latoRegular] text-[46px] text-white mb-[32px]">
             Tell us about your <span className="text-[#FFC94B]">Concerns</span>
           </h2>
           <form
-            className="flex flex-col gap-8"
+            className="flex flex-col gap-8 "
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className="flex flex-col space-y-3 relative">
@@ -122,7 +122,7 @@ const AboutUs = () => {
         <img
           src="./heroLeft.png"
           alt="shopping"
-          className="w-[630px] h-full object-cover flex-1"
+          className="w-[630px] h-full object-cover flex-1 max-md:hidden max-lg:w-[405px]"
         />
       </div>
     </div>

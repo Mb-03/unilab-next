@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const HeaderMenu = () => {
   return (
-    <div className="p-6 bg-white z-10 flex font-[latoRegular] absolute rounded-lg">
+    <div className="p-6 bg-white z-10 flex font-[latoRegular] absolute rounded-lg max-md:hidden">
       <div>
         <div className="flex mb-10 gap-12">
           <div className="space-y-2 flex flex-col min-w-[145px] ">
@@ -170,7 +170,7 @@ const HeaderMenu = () => {
             </li>
           </ul>
         </div>
-        <img src="/headerMenu.png" alt="Womans clothes" className="object-cover rounded-[10px]"/>
+        <img src="/headerMenu.png" alt="Womans clothes" className="object-cover rounded-[10px] max-lg:hidden"/>
       </div>
     </div>
   );

@@ -4,8 +4,8 @@ const SubFooter = () => {
   return (
     <div className="max-w-[1440px] mx-auto">
       <div className="px-[100px]">
-        <div className="flex justify-between border-b border-[#D9D9D9] pb-3 mt-6">
-          <ul className="flex gap-4">
+        <div className="flex justify-between border-b border-[#D9D9D9] pb-3 mt-6 max-md:border-none max-md:justify-center">
+          <ul className="flex gap-4 max-md:justify-center">
             <li>
               <Image
                 width={24}
@@ -34,14 +34,14 @@ const SubFooter = () => {
               />
             </li>
           </ul>
-          <div className="flex items-center">
+          <div className="flex items-center max-md:hidden">
             <span>English</span>
             <Image
                 width={24}
                 height={24} src="/Arrow.svg" alt="" />
           </div>
         </div>
-        <div className="flex justify-between py-[24.5px]">
+        <div className="flex justify-between py-[24.5px] max-md:hidden">
           <p>165-179 Forster Road City of Monash, Melbourne, Australia</p>
           <p className="text-[#9D9D9D] ">
             ©2023 Copyright in reserved for lumine shop

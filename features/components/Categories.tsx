@@ -13,10 +13,10 @@ const Categories = () => {
   const [isMouseIn, setIsMouseIn] = useState(false);
 
   return (
-    <div>
+    <div className="max-md:hidden">
       {!isWoman && (
         <nav className="w-full mx-auto max-w-[1440px] px-[90px] font-[latoRegular] py-4 mt-28px">
-          <ul className="flex text-[#555555] text-[14px]  items-center justify-between">
+          <ul className="flex text-[#555555] text-[14px]  items-center justify-between  max-xl:gap-2.5">
             <li
               onMouseEnter={() => setIsVisible(true)}
               onMouseLeave={() => setIsVisible(false)}

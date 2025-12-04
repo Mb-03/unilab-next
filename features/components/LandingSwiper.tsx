@@ -29,6 +29,8 @@ const LandingSwiper = () => {
         .swiper-button-prev:after {
           font-size: 20px;
         }
+          
+      
           .swiper-slide {
           
           display: flex;
@@ -50,60 +52,68 @@ const LandingSwiper = () => {
           pagination={{ clickable: true }}
           navigation={true}
         >
-          <SwiperSlide>
-            <div className="max-w-[490px]">
-              <h4 className="text-[#465D6B] text-[24px] font-[latoBold] mb-4">
-                MAGSAFE
-              </h4>
-              <p className="text-[20px] text-[#555555]">
-                Snap on a magenit case, wallet, or both. And get faster wireless
-                charging.
-              </p>
-            </div>
-            <div>
-              <Image width={493} height={221} src="/swiperIphone.png" alt="iphone" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="max-w-[490px]">
-              <h4 className="text-[#465D6B] text-[24px] font-[latoBold] mb-4">
-                MAGSAFE
-              </h4>
-              <p className="text-[20px] text-[#555555]">
-                Snap on a magenit case, wallet, or both. And get faster wireless
-                charging.
-              </p>
-            </div>
-            <div>
-              <Image width={493} height={221} src="/swiperIphone.png" alt="iphone" />
+          <SwiperSlide className="flex items-center gap-8">
+            <div className="flex items-center justify-between px-[70px]">
+              <div className="max-w-[490px]">
+                <h4 className="text-[#465D6B] text-[24px] font-[latoBold] mb-4">
+                  MAGSAFE
+                </h4>
+                <p className="text-[20px] text-[#555555]">
+                  Snap on a magenit case, wallet, or both. And get faster
+                  wireless charging.
+                </p>
+              </div>
+              <div>
+                <img src="/swiperIphone.png" alt="iphone" />
+              </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="max-w-[490px]">
-              <h4 className="text-[#465D6B] text-[24px] font-[latoBold] mb-4">
-                MAGSAFE
-              </h4>
-              <p className="text-[20px] text-[#555555]">
-                Snap on a magenit case, wallet, or both. And get faster wireless
-                charging.
-              </p>
-            </div>
-            <div>
-              <Image width={493} height={221} src="/swiperIphone.png" alt="iphone" />
+            <div className="flex items-center justify-between px-[70px]">
+              <div className="max-w-[490px]">
+                <h4 className="text-[#465D6B] text-[24px] font-[latoBold] mb-4">
+                  MAGSAFE
+                </h4>
+                <p className="text-[20px] text-[#555555]">
+                  Snap on a magenit case, wallet, or both. And get faster
+                  wireless charging.
+                </p>
+              </div>
+              <div>
+                <img src="/swiperIphone.png" alt="iphone" />
+              </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="max-w-[490px]">
-              <h4 className="text-[#465D6B] text-[24px] font-[latoBold] mb-4">
-                MAGSAFE
-              </h4>
-              <p className="text-[20px] text-[#555555]">
-                Snap on a magenit case, wallet, or both. And get faster wireless
-                charging.
-              </p>
+            <div className="flex items-center justify-between px-[70px]">
+              <div className="max-w-[490px]">
+                <h4 className="text-[#465D6B] text-[24px] font-[latoBold] mb-4">
+                  MAGSAFE
+                </h4>
+                <p className="text-[20px] text-[#555555]">
+                  Snap on a magenit case, wallet, or both. And get faster
+                  wireless charging.
+                </p>
+              </div>
+              <div>
+                <img src="/swiperIphone.png" alt="iphone" />
+              </div>
             </div>
-            <div>
-              <Image width={493} height={221} src="/swiperIphone.png" alt="iphone" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="flex items-center justify-between px-[70px]">
+              <div className="max-w-[490px]">
+                <h4 className="text-[#465D6B] text-[24px] font-[latoBold] mb-4">
+                  MAGSAFE
+                </h4>
+                <p className="text-[20px] text-[#555555]">
+                  Snap on a magenit case, wallet, or both. And get faster
+                  wireless charging.
+                </p>
+              </div>
+              <div>
+                <img src="/swiperIphone.png" alt="iphone" />
+              </div>
             </div>
           </SwiperSlide>
         </Swiper>

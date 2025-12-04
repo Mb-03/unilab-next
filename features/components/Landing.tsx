@@ -10,12 +10,21 @@ const Landing = () => {
   return (
     <div>
       <Hero />
+      <div className="block md:hidden">
+        <LandingBannerOne />
+      </div>
       <FlashSales />
       <Trending />
       <TopHundred />
-      <LandingBannerOne />
-      <LandingSwiper />
-      <LandingBannerTwo />
+      <div className="block max-md:hidden">
+        <LandingBannerOne />
+      </div>
+      <div className="block max-md:hidden">
+        <LandingSwiper />
+      </div>
+      <div className="block max-md:hidden">
+        <LandingBannerTwo />
+      </div>
     </div>
   );
 };
