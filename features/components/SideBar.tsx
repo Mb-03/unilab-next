@@ -6,6 +6,8 @@ import { useFilters } from "../context/FilterContext";
 import { useQuery } from "@tanstack/react-query";
 import { ProductCard, sideBarHelperFetch } from "../api/api";
 import { extractUniqueFilters } from "../utils/extractFilters";
+import { useFilterToggle } from "../context/FilterToggleContext";
+import PriceSlider from "./PriceSlider";
 
 const SideBar = () => {
   const [localBrand, setLocalBrand] = useState("");
@@ -34,10 +36,20 @@ const SideBar = () => {
 
   const { colors, models, sizes, styles } = extractUniqueFilters(filters);
 
+  const { isOpen } = useFilterToggle();
+
   return (
-    <div className="font-[latoRegular]  items-center py-[18px] ">
-      <div className="flex gap-4 mb-5 px-[26px]">
-        <img src="/sideBarCategories.svg" alt="categories icon" />
+    <div
+      className={`font-[latoRegular]  items-center py-[18px] max-md:left-0  max-md:top-0 max-md:absolute max-md:max-w-[300px] max-md:min-h-screen max-md:z-50 max-md:shadow-[5px_0px_14px_0px_rgba(0,0,0,0.16)] bg-white ${
+        isOpen ? "max-md:block" : "max-md:hidden"
+      } hidden md:block`}
+    >
+      <div className="flex gap-4 mb-5 px-[26px] ">
+        <img
+          src="/sideBarCategories.svg"
+          alt="categories icon"
+          className="w-4 h-4"
+        />
         <h4 className="font-[latoBold]">All Categories</h4>
       </div>
       <div className="flex flex-col gap-3 relative  px-[26px]">
@@ -134,6 +146,7 @@ const SideBar = () => {
               })}
             </div>
           </div>
+          <PriceSlider />
         </div>
       </div>
     </div>

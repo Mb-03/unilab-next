@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <div>
       {isAboutPage && (
-        <div className="bg-[#D1E2EB] w-full mt-[155px] font-[latoRegular]">
+        <div className="bg-[#D1E2EB] w-full mt-[155px] font-[latoRegular] max-md:mt-0">
           <footer className="max-w-[1440px] mx-auto relative ">
             {isHomePage && (
               <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#7296AB] rounded-lg py-8 px-14 flex flex-col items-center overflow-y-hidden max-md:hidden">

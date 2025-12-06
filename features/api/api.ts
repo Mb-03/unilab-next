@@ -95,3 +95,12 @@ export async function sideBarHelperFetch(): Promise<ProductCard[]> {
   if (!res.ok) throw new Error("failed to fetch");
   return res.json();
 }
+
+export async function getImageDetails(id: string): Promise<ProductCard> {
+  const res = await fetch(
+    `https://692c7e12c829d464006fb926.mockapi.io/unilab/${id}`
+  );
+  if (!res.ok) throw new Error("failed to fetch");
+
+  return res.json();
+}

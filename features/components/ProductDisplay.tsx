@@ -3,9 +3,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { getFilterProducts } from "../api/api";
 import { useFavourite } from "../context/FavouriteContext";
-import { FaHeart, FaStar } from "react-icons/fa";
+import { FaFilter, FaHeart, FaStar } from "react-icons/fa";
 import ProductSkeletonGrid from "./ProductDisplaySkeleton";
 import { useFilters } from "../context/FilterContext";
+import { useFilterToggle } from "../context/FilterToggleContext";
+import Link from "next/link";
 
 const ProductDisplay = () => {
   const { favourite, toggleFavourite } = useFavourite();
@@ -21,63 +23,75 @@ const ProductDisplay = () => {
   });
 
   const totalStars = 5;
+  const { toggleOpen } = useFilterToggle();
 
   return (
-    <div className="grid grid-cols-3 gap-x-[20px] gap-y-[32px] max-lg:grid-cols-1">
-      {isError && <h1>No Item matches Your SEarch</h1>}
-      {isLoading && <ProductSkeletonGrid />}
-      {products.map((prodcut) => {
-        const rating = Math.ceil(Number(prodcut.reviews));
-        return (
-          <div
-            key={prodcut.id}
-            className="shadow-[0_0_12px_0_rgba(0,0,0,0.1)] rounded-lg"
-          >
-            <img src="/top100Img.svg" alt="shopping dress" />
-            <div className="flex justify-between p-5 items-center">
-              <div className="flex flex-col">
-                <h4 className="text-[#262626] text-sm font-[latoBold]">
-                  {prodcut.brand}
-                </h4>
-                <p className="text-[#555555] text-[10px] font-[latoRegular]">
-                  {prodcut.title}
-                </p>
-              </div>
-              <FaHeart
-                className={`hover:text-red-500 cursor-pointer ${
-                  favourite.includes(prodcut.id)
-                    ? "text-red-500"
-                    : "text-gray-500"
-                }`}
-                onClick={() => toggleFavourite(prodcut.id)}
-              />
+    <>
+      <button
+        className=" px-[64px] py-[17px] border border-[#D9D9D9] rounded-sm mb-8 mx-auto w-full flex items-center justify-center gap-1 cursor-pointer md:hidden"
+        onClick={toggleOpen}
+      >
+        <FaFilter className="text-[#FF7A00]" size={24} />
+        Filter
+      </button>
+      <div className="grid grid-cols-3 gap-x-[20px] gap-y-[32px] max-lg:grid-cols-1 max-md:max-h-[955px] max-md:overflow-y-auto ">
+        {isError && <h1>No Item matches Your SEarch</h1>}
+        {isLoading && <ProductSkeletonGrid />}
+        {products.map((prodcut) => {
+          const rating = Math.ceil(Number(prodcut.reviews));
+          return (
+            <div
+              key={prodcut.id}
+              className="shadow-[0_0_12px_0_rgba(0,0,0,0.1)] rounded-lg"
+            >
+              <Link href={`/woman/${prodcut.id}`}>
+                <img src="/top100Img.svg" alt="shopping dress" />
+                <div className="flex justify-between p-5 items-center">
+                  <div className="flex flex-col">
+                    <h4 className="text-[#262626] text-sm font-[latoBold]">
+                      {prodcut.brand}
+                    </h4>
+                    <p className="text-[#555555] text-[10px] font-[latoRegular]">
+                      {prodcut.title}
+                    </p>
+                  </div>
+                  <FaHeart
+                    className={`hover:text-red-500 cursor-pointer ${
+                      favourite.includes(prodcut.id)
+                        ? "text-red-500"
+                        : "text-gray-500"
+                    }`}
+                    onClick={() => toggleFavourite(prodcut.id)}
+                  />
+                </div>
+                <div className="flex px-5">
+                  {Array.from({ length: totalStars }, (_, index) => (
+                    <FaStar
+                      key={index}
+                      className={
+                        index < rating ? "text-yellow-400" : "text-gray-300"
+                      }
+                    />
+                  ))}
+                  <p className="text-[#555555] text-[12px] ml-3">
+                    ({prodcut.reviews})
+                  </p>
+                </div>
+                <div className="flex items-center gap-3 mt-3 px-5 pb-5">
+                  <span className="text-red-500 font-bold text-lg">
+                    ${prodcut.price}
+                  </span>
+                  <span className="text-gray-400">${prodcut.oldPrice}</span>
+                  <span className=" text-red-500 text-xs">
+                    -{prodcut.discountPercent}%
+                  </span>
+                </div>
+              </Link>
             </div>
-            <div className="flex px-5">
-              {Array.from({ length: totalStars }, (_, index) => (
-                <FaStar
-                  key={index}
-                  className={
-                    index < rating ? "text-yellow-400" : "text-gray-300"
-                  }
-                />
-              ))}
-              <p className="text-[#555555] text-[12px] ml-3">
-                ({prodcut.reviews})
-              </p>
-            </div>
-            <div className="flex items-center gap-3 mt-3 px-5 pb-5">
-              <span className="text-red-500 font-bold text-lg">
-                ${prodcut.price}
-              </span>
-              <span className="text-gray-400">${prodcut.oldPrice}</span>
-              <span className=" text-red-500 text-xs">
-                -{prodcut.discountPercent}%
-              </span>
-            </div>
-          </div>
-        );
-      })}
-    </div>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

@@ -34,3 +34,31 @@ body {
   font-family: "latoBold";
   src: url("/Lato-Bold.ttf");
 }
+
+.slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  pointer-events: none; /* Only thumbs will capture events */
+}
+
+.slider-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  background: #3b82f6; /* blue */
+  border-radius: 9999px;
+  cursor: pointer;
+  pointer-events: all; /* enable drag */
+}
+
+.slider-thumb::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  background: #3b82f6;
+  border-radius: 9999px;
+  cursor: pointer;
+  pointer-events: all;
+}
+

@@ -7,6 +7,7 @@ import { getFlashSales } from "../api/api";
 import { Product } from "../types/FlashSaleType";
 import { FlashSaleCardSkeleton } from "./FlashSaleCardSkeleton";
 import { Swiper, SwiperSlide } from "swiper/react";
+import CountdownTimer from "../components/CountdownTimer";
 
 const FlashSalesCard = () => {
   const { data: cards, isLoading } = useQuery<Product[]>({
@@ -47,7 +48,13 @@ const FlashSalesCard = () => {
         <span className="text-[#9D9D9D] font-[latoBold] text-center">
           Deal of the Day
         </span>
-
+        <div className="self-center font-[latoBold]">
+          <CountdownTimer
+            initialSeconds={
+              Math.floor(Math.random() * (86400 - 7200 + 1)) + 7200
+            }
+          />
+        </div>
         <img
           src="/flashSalesImg.svg"
           alt="bag"
@@ -114,7 +121,7 @@ const FlashSalesCard = () => {
           centeredSlides={false}
         >
           {topFour?.map((card) => (
-            <SwiperSlide key={card.id} style={{width: "400px"}}>
+            <SwiperSlide key={card.id} style={{ width: "400px" }}>
               <Card card={card} />
             </SwiperSlide>
           ))}

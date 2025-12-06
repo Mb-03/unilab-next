@@ -10,6 +10,7 @@ import SubFooter from "@/features/components/SubFooter";
 import MainLayout from "@/features/layouts/MainLayout";
 import { FavouriteProvider } from "@/features/context/FavouriteContext";
 import { FilterProvider } from "@/features/context/FilterContext";
+import { FilterToggleProvider } from "@/features/context/FilterToggleContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,7 +40,9 @@ export default function RootLayout({
         <QueryProvider>
           <FavouriteProvider>
             <FilterProvider>
-              <MainLayout>{children}</MainLayout>
+              <FilterToggleProvider>
+                <MainLayout>{children}</MainLayout>
+              </FilterToggleProvider>
             </FilterProvider>
           </FavouriteProvider>
 

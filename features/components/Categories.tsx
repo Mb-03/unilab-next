@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 const Categories = () => {
   const pathname = usePathname();
-  const isWoman = pathname === "/woman";
+  const isWoman = pathname === "/woman" || pathname.startsWith("/woman/");
 
   const [isVisible, setIsVisible] = useState(false);
   const [isMouseIn, setIsMouseIn] = useState(false);
