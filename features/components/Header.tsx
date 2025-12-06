@@ -10,6 +10,7 @@ import { useDebounce } from "../debounce/UseDebounce";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import SideMenuMobile from "./SideMenuMobile";
+import { useCartContext } from "../context/CartContext";
 
 const Header = () => {
   const [search, setSearch] = useState("");
@@ -25,6 +26,7 @@ const Header = () => {
   };
 
   const { favourite } = useFavourite();
+  const { item } = useCartContext();
 
   return (
     <div>
@@ -194,7 +196,7 @@ const Header = () => {
                 <img src="/cart.svg" alt="shopping cart" className="w-6 h-6" />
                 <a href="">Cart</a>
                 <span className="ml-2 rounded-[100%] bg-[#3DC47E] px-2 py-2 w-6 h-6 flex items-center">
-                  3
+                  {item.length}
                 </span>
               </li>
             </ul>

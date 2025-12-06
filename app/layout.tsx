@@ -11,6 +11,7 @@ import MainLayout from "@/features/layouts/MainLayout";
 import { FavouriteProvider } from "@/features/context/FavouriteContext";
 import { FilterProvider } from "@/features/context/FilterContext";
 import { FilterToggleProvider } from "@/features/context/FilterToggleContext";
+import { CartContextProvider } from "@/features/context/CartContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,7 +42,9 @@ export default function RootLayout({
           <FavouriteProvider>
             <FilterProvider>
               <FilterToggleProvider>
-                <MainLayout>{children}</MainLayout>
+                <CartContextProvider>
+                  <MainLayout>{children}</MainLayout>
+                </CartContextProvider>
               </FilterToggleProvider>
             </FilterProvider>
           </FavouriteProvider>
