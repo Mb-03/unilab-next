@@ -10,8 +10,8 @@ const DetailsPageDetails = () => {
 
   return (
     <div>
-      <div className="max-w-[1440px] px-[90px] flex justify-center mx-auto  border-b border-[#D9D9D9]">
-        <div className="flex gap-16 pb-5">
+      <div className="max-w-[1440px] px-[90px] flex justify-center mx-auto  border-b border-[#D9D9D9] max-md:px-5">
+        <div className="flex gap-16 pb-5 max-md:gap-[30px]">
           <span
             className={`font-[latoBold] uppercase text-[14px] text-[#9D9D9D] ${
               isDetails && "text-[#262626]"

@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronDown, FaChevronUp, FaPlus } from "react-icons/fa";
 
 const ProductDetails = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div className="max-w-[1440px] px-[90px] mt-10">
+    <div className="max-w-[1440px] px-[90px] mt-10 max-md:px-5">
       <div
         className={`overflow-y-hidden transition-all duration-300 ease-in-out ${
           expanded ? "max-h-[2000px]" : "max-h-[300px]"
@@ -97,6 +97,34 @@ const ProductDetails = () => {
           </>
         )}
       </button>
+      <div className="max-md:block md:hidden">
+        <div className="bg-[#E9E9E9] py-3 px-6 mt-8 max-lg:max-w-[345px] max-md:max-w-full">
+          <span className="font-[latoBold] border-b border-[#C4C4C4] flex pb-2">
+            $79.98
+          </span>
+          <span className="pt-2 flex gap-[5px] text-[12px] items-center">
+            <FaPlus
+              className="bg-[#C4C4C4] rounded-lg p-1 text-white"
+              size={20}
+            />
+            Add shipping insurance for $9( declared value only if the package
+            gets lost, stolen or damaged.)
+          </span>
+        </div>
+        <div className="flex mt-8 gap-5 justify-between">
+          <button className="uppercase bg-[#4172DC] text-white px-8 py-4 rounded-sm min-w-[275px] max-lg:min-w-0 text-sm max-lg:px-4 flex-1">
+            Shop Now
+          </button>
+          <button
+            className="flex items-center uppercase px-8 py-4 text-black border border-[#434343] rounded-sm gap-2 min-w-[275px] justify-center max-lg:min-w-0 text-sm max-lg:px-4 flex-1"
+            // @ts-expect-error
+            onClick={() => toggleItem(data?.id)}
+          >
+            <img src="/addToCard.svg" alt="add to cart icon" />
+            Add to Basket
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
