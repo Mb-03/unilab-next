@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import ProductDetails from "./ProductDetails";
+import DetailsReviews from "./DetailsReviews";
+import Shipping from "./Shipping";
 
 const DetailsPageDetails = () => {
   const [isDetails, setIsDetails] = useState(true);
@@ -16,6 +18,11 @@ const DetailsPageDetails = () => {
             className={`font-[latoBold] uppercase text-[14px] text-[#9D9D9D] ${
               isDetails && "text-[#262626]"
             } cursor-pointer`}
+            onClick={() => {
+              setIsDetails(true);
+              setIsReviews(false);
+              setIsShipping(false);
+            }}
           >
             Product Details
           </span>
@@ -23,6 +30,11 @@ const DetailsPageDetails = () => {
             className={`font-[latoBold] uppercase text-[14px] text-[#9D9D9D] ${
               isReviews && "text-[#262626]"
             } cursor-pointer`}
+            onClick={() => {
+              setIsDetails(false);
+              setIsReviews(true);
+              setIsShipping(false);
+            }}
           >
             Reviews(5)
           </span>
@@ -30,12 +42,19 @@ const DetailsPageDetails = () => {
             className={`font-[latoBold] uppercase text-[14px] text-[#9D9D9D] ${
               isShipping && "text-[#262626]"
             } cursor-pointer`}
+            onClick={() => {
+              setIsDetails(false);
+              setIsReviews(false);
+              setIsShipping(true);
+            }}
           >
             Shipping & payment
           </span>
         </div>
       </div>
       {isDetails && <ProductDetails />}
+      {isReviews && <DetailsReviews />}
+      {isShipping && <Shipping />}
     </div>
   );
 };

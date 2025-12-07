@@ -176,6 +176,7 @@ const Details = () => {
       </div>
       <div>
         <DetailsPageDetails />
+        
         <AlsoLike />
       </div>
     </div>
