@@ -42,8 +42,9 @@ export const CartContextProvider = ({ children }: CardProps) => {
   };
 
   useEffect(() => {
+    if (!mounted) return;
     localStorage.setItem("Cart", JSON.stringify(item));
-  }, [item, mounted]);
+  }, [item]);
 
   return (
     <CartContext.Provider value={{ item, toggleItem }}>

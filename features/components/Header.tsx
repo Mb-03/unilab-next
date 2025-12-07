@@ -193,11 +193,17 @@ const Header = () => {
                 )}
               </li>
               <li className="flex gap-1 items-center">
-                <img src="/cart.svg" alt="shopping cart" className="w-6 h-6" />
-                <a href="">Cart</a>
-                <span className="ml-2 rounded-[100%] bg-[#3DC47E] px-2 py-2 w-6 h-6 flex items-center">
-                  {item.length}
-                </span>
+                <Link href="/cart" className="flex gap-1 items-center">
+                  <img
+                    src="/cart.svg"
+                    alt="shopping cart"
+                    className="w-6 h-6"
+                  />
+                  <a href="">Cart</a>
+                  <span className="ml-2 rounded-[100%] bg-[#3DC47E] px-2 py-2 w-6 h-6 flex items-center">
+                    {item.length}
+                  </span>
+                </Link>
               </li>
             </ul>
           </nav>

@@ -43,8 +43,9 @@ export const FavouriteProvider = ({ children }: Props) => {
   };
 
   useEffect(() => {
+    if (!mounted) return
     localStorage.setItem("favourites", JSON.stringify(favourite));
-  }, [favourite, mounted]);
+  }, [favourite]);
 
   return (
     <FavouriteContext.Provider value={{ favourite, toggleFavourite }}>
